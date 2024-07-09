@@ -1,3 +1,4 @@
+import random
 import pyautogui, sys
 import events
 import time
@@ -13,7 +14,8 @@ def countdown(n):
 
 def execute_function():
     print("Executing function...")
-    events.ran_clicks.click()
+    # time.sleep(random.randint(1, ))
+    events.clicks.click(0)
     try:
         while True:
             x, y = pyautogui.position()
