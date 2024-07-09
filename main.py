@@ -15,7 +15,8 @@ def countdown(n):
 def execute_function():
     print("Executing function...")
     # time.sleep(random.randint(1, ))
-    events.clicks.click(0)
+    # events.clicks.click(0)
+    events.browser.open(1)
     try:
         while True:
             x, y = pyautogui.position()
