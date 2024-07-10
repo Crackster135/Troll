@@ -3,10 +3,8 @@ import pyautogui, sys
 import events
 import time
 
-import events.image
-
 print('Press Ctrl-C to quit.')
-
+events.volume.set_volume(100)
 def countdown(n):
     while n >= 1:
         print(f"Time remaining: {n} second(s)")
@@ -20,14 +18,14 @@ def execute_function():
     # events.clicks.click(0)
     # events.browser.open(1)
     events.image.display_multiple_images()
-    try:
-        while True:
-            x, y = pyautogui.position()
-            positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
-            print(positionStr, end='')
-            print('\b' * len(positionStr), end='', flush=True)
-    except KeyboardInterrupt:
-        print('\n')
+    # events.typing.gibberish(40)
+    
+    while True:
+        x, y = pyautogui.position()
+        positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
+        print(positionStr, end='')
+        print('\b' * len(positionStr), end='', flush=True)
+    
 
-# Start the countdown from 10
-countdown(3)
+# Start the countdown from 
+countdown(10)

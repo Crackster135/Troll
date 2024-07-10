@@ -4,7 +4,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import os
 
-images = ["events/src/arabic1.jpg", "events/src/mantummy1.jpeg", "events/src/nigger1.jpeg", "events/src/rock1.jpg"]
+images = ["events/media/images/arabic1.jpg", "events/media/images/mantummy1.jpeg", "events/media/images/nigger1.jpeg", "events/media/images/rock1.jpg"]
 
 def display_image_in_window():
     img_index = random.randint(0, len(images) - 1)
