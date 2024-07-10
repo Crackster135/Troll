@@ -3,6 +3,8 @@ import pyautogui, sys
 import events
 import time
 
+import events.image
+
 print('Press Ctrl-C to quit.')
 
 def countdown(n):
@@ -16,7 +18,8 @@ def execute_function():
     print("Executing function...")
     # time.sleep(random.randint(1, ))
     # events.clicks.click(0)
-    events.browser.open(1)
+    # events.browser.open(1)
+    events.image.display_image_in_window()
     try:
         while True:
             x, y = pyautogui.position()
