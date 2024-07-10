@@ -19,7 +19,7 @@ def execute_function():
     # time.sleep(random.randint(1, ))
     # events.clicks.click(0)
     # events.browser.open(1)
-    events.image.display_image_in_window()
+    events.image.display_multiple_images()
     try:
         while True:
             x, y = pyautogui.position()
@@ -30,4 +30,4 @@ def execute_function():
         print('\n')
 
 # Start the countdown from 10
-countdown(10)
+countdown(3)
