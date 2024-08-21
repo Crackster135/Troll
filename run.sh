@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 ./main.py
+python3 ./main.py 2>/dev/null

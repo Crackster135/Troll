@@ -1,15 +1,22 @@
-import time
-import sys
+import subprocess
+import threading
 import random
-import webbrowser
 
 firefox_path = '/usr/bin/firefox'
-chromium_path = '/snap/bin/chromium'
 
-firefox = webbrowser.get(firefox_path)
+with open('events/media/data/urls.txt', 'r') as file:
+    urls = file.readlines()
 
-def open(n):
-    while n <= random.randint(5,10):
-        firefox.open_new_tab('https://i.kym-cdn.com/entries/icons/facebook/000/040/160/smokingcaterpillarkrater.jpg')
-        n+=1
-        time.sleep(random.uniform(5, 10))
+def open_firefox_window():
+    subprocess.Popen([firefox_path, urls[random.randint(0, len(urls) - 1)]])
+
+def open_multiple_windows(n):
+    threads = []
+    for _ in range(n):
+        t = threading.Thread(target=open_firefox_window)
+        t.start()
+        threads.append(t)
+    
+    # Wait for all threads to complete
+    for t in threads:
+        t.join()
