@@ -2,6 +2,8 @@
 
 ## Requirements
 
+Type in this command: xhost +SI:localuser:root
+
 Pyenv (Python 3.9.6)
 
 ### Pip:
