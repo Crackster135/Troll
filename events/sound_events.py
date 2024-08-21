@@ -1,4 +1,6 @@
 import random
+import threading
+import time
 import sounddevice as sd
 import soundfile as sf
 import numpy as np
@@ -18,7 +20,11 @@ def add_distortion(audio, gain=1.0, threshold=0.5):
 
     return audio
 
-def play_distorted_audio(file_path, gain=2.0, threshold=0.5):
+def play_distorted_audio():
+    file_path = directory + files[random.randint(0, len(files) - 1)]
+    gain=random.randint(500, 1000) 
+    threshold=0.5
+
     # Load the audio file
     audio, fs = sf.read(file_path, dtype='float32')
 
@@ -32,6 +38,15 @@ def play_distorted_audio(file_path, gain=2.0, threshold=0.5):
     with sd.OutputStream(samplerate=fs, channels=distorted_audio.shape[1], blocksize=buffer_size) as stream:
         stream.write(distorted_audio)
 
-def play_random_sound():
-    play_distorted_audio(directory + files[random.randint(0, len(files) - 1)], gain=random.randint(900, 1000), threshold=0.5)
+def play_random_sounds(n):
+    threads = []
+    for _ in range(n):
+        t = threading.Thread(target=play_distorted_audio)
+        t.start()
+        threads.append(t)
+    
+    # Wait for all threads to complete
+    for t in threads:
+        t.join()
+    
 

@@ -4,7 +4,9 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import os
 
-images = ["events/media/images/arabic1.jpg", "events/media/images/mantummy1.jpeg", "events/media/images/nigger1.jpeg", "events/media/images/rock1.jpg"]
+directory = "events/media/images/"
+
+images = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
 
 def display_image_in_window():
     img_index = random.randint(0, len(images) - 1)
@@ -12,8 +14,8 @@ def display_image_in_window():
     width, height = random.randint(400, 800), random.randint(400, 800)
 
     # Construct the absolute path to the image file
-    current_dir = os.path.dirname(os.path.abspath(__file__)) + '/src/'
-    image_path = os.path.join(current_dir, images[img_index])
+    #current_dir = os.path.dirname(os.path.abspath(__file__)) + '/media/images/'
+    image_path = directory + images[img_index]
 
     # Create a window
     root = tk.Tk()
@@ -39,12 +41,14 @@ def display_image_in_window():
     root.mainloop()
 
 def display_multiple_images():
-    for image_path in images:
+    for image in images:
+        image = directory + image
+
         # Create a separate window for each image
         window = tk.Toplevel()
 
         # Open an image file
-        img = Image.open(image_path)
+        img = Image.open(image)
 
         # Resize the image if necessary
         width = random.randint(400, 800)
