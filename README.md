@@ -2,6 +2,8 @@
 
 ## Requirements
 
+Pyenv (Python 3.9.6)
+
 ### Pip:
 
 - pyautogui
