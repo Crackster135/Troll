@@ -14,6 +14,7 @@ Pyenv (Python 3.9.6)
 - soundfile
 - numpy
 - TKinter
+- Keyboard
 
 ### Packages:
 
